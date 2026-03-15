@@ -8,6 +8,7 @@ pub mod crypto;
 mod email;
 mod nostr;
 mod types;
+pub use types::EmailConfig;
 pub mod state;
 mod storage;
 mod database;
@@ -410,7 +411,7 @@ async fn send_direct_message_persistent(
     let keys = state.get_current_keys().ok_or("No keys available")?;
     
     // Determine encryption algorithm (default to NIP-44)
-    let algorithm = encryption_algorithm.unwrap_or("nip44");
+    let algorithm = encryption_algorithm.unwrap_or("nip04");
     println!("[RUST] Using encryption algorithm: {}", algorithm);
     
     // Handle content based on type

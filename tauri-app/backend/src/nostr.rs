@@ -203,7 +203,7 @@ pub async fn send_direct_message_with_content(
     client.connect().await;
     
     // Determine encryption algorithm (default to NIP-44)
-    let algorithm = encryption_algorithm.unwrap_or("nip44");
+    let algorithm = encryption_algorithm.unwrap_or("nip04");
     println!("[NOSTR] Using encryption algorithm: {}", algorithm);
     
     // Handle content based on its type

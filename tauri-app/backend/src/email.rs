@@ -2495,16 +2495,15 @@ pub fn decrypt_nostr_email_content(config: &EmailConfig, raw_headers: &str, subj
             .to_string();
         
         // Detect format for logging
-        let detected_format = crypto::detect_encryption_format(&clean_body);
-        println!("[RUST] Detected encryption format: {} for email body", detected_format);
+	// let detected_format = crypto::detect_encryption_format(&clean_body);
         
         match crypto::decrypt_message(private_key, &sender_pubkey, &clean_body) {
             Ok(decrypted) => {
-                println!("[RUST] Successfully decrypted body using format: {}", detected_format);
+               // println!("[RUST] Successfully decrypted body using format: {}", detected_format);
                 decrypted
             }
             Err(e) => {
-                println!("[RUST] Failed to decrypt body (detected format: {}): {}", detected_format, e);
+               // println!("[RUST] Failed to decrypt body (detected format: {}): {}", detected_format, e);
                 body.to_string()
             }
         }
