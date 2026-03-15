@@ -23,3 +23,17 @@ relay.log
 # Rust build files
 target/
 **/target/
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# build artifacts
+target/
+dist/
+
+# temporary files
+*.tmp
+*.cache
